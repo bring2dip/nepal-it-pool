@@ -9,6 +9,10 @@ WORKDIR /go/src/github.com/user/sites/app
 RUN go get ./
 RUN go build
 
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT ["entrypoint.sh"]
+
 CMD if [ ${APP_ENV} = production ]; \
 	then \
 	go run migration/developer.go \
