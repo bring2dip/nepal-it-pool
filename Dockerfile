@@ -9,9 +9,9 @@ WORKDIR /go/src/github.com/user/sites/app
 RUN go get ./
 RUN go build
 
-RUN chmod +x entrypoint.sh
+RUN chmod +x /go/src/github.com/user/sites/app/entrypoint.sh
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/go/src/github.com/user/sites/app/entrypoint.sh"]
 
 CMD if [ ${APP_ENV} = production ]; \
 	then \
