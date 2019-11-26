@@ -14,6 +14,7 @@ services:
       - "5000:8080"
     depends_on:
       - elasticsearch
+    command: development
   elasticsearch:
     container_name: 'elasticsearch'
     image: 'docker.elastic.co/elasticsearch/elasticsearch:7.4.2'

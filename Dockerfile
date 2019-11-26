@@ -11,14 +11,6 @@ RUN go build
 
 RUN chmod +x /go/src/github.com/user/sites/app/entrypoint.sh
 
-ENTRYPOINT ["/go/src/github.com/user/sites/app/entrypoint.sh"]
-
-CMD if [ ${APP_ENV} = production ]; \
-	then \
-	app; \
-	else \
-	go get github.com/pilu/fresh && \
-	fresh; \
-	fi
+ENTRYPOINT ["/bin/bash","/go/src/github.com/user/sites/app/entrypoint.sh"]
 
 EXPOSE 8080
